@@ -1,0 +1,2 @@
+public class HJ38 {
+}
