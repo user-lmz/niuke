@@ -22,15 +22,16 @@ public class HJ71 {
                     char c2 = s.charAt(j-1);
                     if (c1 == '*') {
                         if (check(c2))
-                            dp[i][j] = dp[i-1][j] || dp[i][j-1];
+                            dp[i][j] = dp[i-1][j] || dp[i][j-1] || dp[i-1][j-1];
                         else
                             dp[i][j] = false;
-                    } else if (c1 == '?' || c1 == c2) {
+                    } else if (c1 == '?') {
                         if (check(c2))
                             dp[i][j] = dp[i-1][j-1];
                         else
                             dp[i][j] = false;
-                    }
+                    } else if (c1 == c2)
+                        dp[i][j] = dp[i-1][j-1];
                 }
             }
             System.out.println(dp[m][n]);
